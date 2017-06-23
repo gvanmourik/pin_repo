@@ -50,15 +50,20 @@ LIBS := \
   -lc-dynamic \
   -lunwind-dynamic
 
-TARGET=test.dylib
+TARGET=EATrace.dylib
 
-all: $(TARGET)
+all : $(TARGET)
 
-SOURCE=test.cpp
+SOURCE=EATrace.cpp
 OBJECT=$(SOURCE:.cpp=.o)
 
-%.o: %.cpp
+%.o : %.cpp
 	g++ $(INCLUDES) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
 $(TARGET): $(OBJECT) $(PIN_ROOT)/intel64/runtime/pincrt/crtbeginS.o
 	g++ -shared -o $@ $+ $(LDFLAGS) $(LIBS)
+
+clean : $(OBJECT)
+	rm -f $(OBJECT) $(TARGET)
+	echo Clean completed	
+

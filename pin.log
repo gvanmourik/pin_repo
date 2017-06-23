@@ -1,6 +1,2 @@
 Pin 3.2 kit 81201
-E:  Unable to run task_for_pid() on the process to be injected.
-This was probably happened because this host machine was not configured correctly to run Pin.
-Please run:
-sudo <PIN_KIT>/sbin/host_config
-To fix this problem
+E:  EATrace.cpp:15: Cannot use IARG_MEMORYREAD_EA for ins without memory read (     2 0x00007fff6858f001 push 0x0)
